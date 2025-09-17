@@ -129,17 +129,4 @@ $twilio->call($to, $message, $params);
 // passes all these params on.
 ```
 
-#### Dummy class
 
-There is a dummy implementation of the `TwilioInterface` available: `Aloha\Twilio\Dummy`. This class
-allows you to inject this instead of a working implementation in case you need to run quick integration tests.
-
-#### Logging decorator
-
-There is one more class available for you: the `Aloha\Twilio\LoggingDecorator`. This class wraps any
-`TwilioInterface` object and logs whatever Twilio will do for you. It also takes a `Psr\Log\LoggerInterface` object
-(like Monolog) for logging, you know.
-
-By default the service providers don't wrap objects with the `LoggingDecorator`,
-but it is at your disposal in case you want it. A possible use case is to construct a
-`TwilioInterface` object that logs what will happen, but doesn't actually call Twilio (using the Dummy class):
